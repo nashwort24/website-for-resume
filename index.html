@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nathan Ashworth — Projects</title>
+  <meta name="description" content="Portfolio of Nathan Ashworth — data/analytics & front‑end projects, including Allergen Life." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root {
+      --bg: #0b1020;        /* deep navy */
+      --bg-soft: #111735;   /* slightly lighter */
+      --text: #eef2ff;      /* icy white */
+      --muted: #c7d2fe;     /* periwinkle */
+      --brand: #7c3aed;     /* violet */
+      --brand-2: #06b6d4;   /* cyan */
+      --brand-3: #f43f5e;   /* rose */
+      --card: #0f172a;      /* slate */
+      --card-border: #1f2a4a;
+      --accent: #22c55e;    /* green */
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --bg-soft: #eef2ff;
+        --text: #0b1020;
+        --muted: #334155;
+        --brand: #5b21b6;
+        --brand-2: #0891b2;
+        --brand-3: #db2777;
+        --card: #ffffff;
+        --card-border: #e2e8f0;
+        --accent: #16a34a;
+        --shadow: 0 10px 20px rgba(2,8,23,.08);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at -10% -10%, var(--bg-soft), transparent 60%),
+                  radial-gradient(1200px 600px at 110% -10%, color-mix(in oklab, var(--brand) 35%, transparent), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--brand-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in oklab, var(--bg), transparent 15%);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .2px; }
+    .brand-info { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .logo {
+      width: 34px; height: 34px; border-radius: 9px;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+    .nav a { color: var(--text); opacity: .9; }
+    .nav-links { display: flex; gap: 16px; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 14px; border-radius: 12px; border: 1px solid var(--card-border);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 70%, transparent), var(--card));
+      color: var(--text); text-decoration: none; font-weight: 600; letter-spacing: .2px;
+      box-shadow: var(--shadow);
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    /* Headings */
+    .section-title { font-size: 22px; margin: 6px 0 14px; position: relative; display: inline-block; }
+    .section-title::after{
+      content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 3px;
+      background: linear-gradient(90deg, var(--brand), var(--brand-2), var(--brand-3));
+      border-radius: 2px;
+    }
+
+    /* Hero */
+    .hero { padding: 56px 0 32px; }
+    .hero h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin: 0 0 10px; }
+    .hero p { max-width: 70ch; margin: 0 0 18px; color: var(--muted); }
+    .pill {
+      display: inline-flex; gap: 8px; align-items: center;
+      padding: 6px 10px; border-radius: 999px; border: 1px solid var(--card-border);
+      background: color-mix(in oklab, var(--card) 80%, transparent);
+      font-size: 14px; color: var(--muted);
+    }
+
+    /* Responsive adjustments for header */
+    @media (max-width: 768px) {
+      .nav { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .brand-info { width: 100%; justify-content: space-between; }
+      .nav-links { width: 100%; justify-content: center; }
+    }
+
+    /* Cards */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card {
+      grid-column: span 12;
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), var(--card));
+      border: 1px solid var(--card-border); border-radius: 16px; padding: 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+    }
+    .card-content {
+      flex: 1;
+    }
+    .card-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--card-border);
+      flex-shrink: 0;
+    }
+    @media (min-width: 720px) {
+      .card { grid-column: span 6; }
+    }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .card h3 a { color: var(--text); text-decoration: none; }
+    .card h3 a:hover { color: var(--text); text-decoration: none; }
+    .card p { margin: 0 0 12px; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+    .tag { font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px dashed var(--card-border); color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn.ghost { background: transparent; border-style: dashed; opacity: .95; }
+    .btn.success { background: linear-gradient(180deg, color-mix(in oklab, var(--brand-2) 22%, var(--card)), var(--card)); }
+    .btn.resume { background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 22%, var(--card)), var(--card)); }
+
+    /* Skills */
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { padding: 8px 12px; border: 1px solid var(--card-border); border-radius: 999px; background: color-mix(in oklab, var(--card) 85%, transparent); font-weight: 600; color: var(--text); }
+
+    /* Detail views */
+    .hidden { display: none !important; }
+    .detail {
+      padding: 18px; border: 1px solid var(--card-border); border-radius: 16px; background: var(--card);
+      box-shadow: var(--shadow); margin: 18px 0 0;
+    }
+    .detail h2 { margin-top: 0; }
+    .back { display:inline-flex; align-items:center; gap:8px; margin-bottom: 10px; }
+    .meta { color: var(--muted); margin: 8px 0 14px; }
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .gallery figure { margin: 0; }
+    .gallery.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .ph,
+    .gallery img {
+      width: 100%; aspect-ratio: 16/9; border-radius: 12px; border: 1px solid var(--card-border);
+      background: #ffffff;
+      display: grid; place-items: center; color: var(--muted); font-weight: 600;
+      object-fit: contain;
+    }
+    .gallery img.mobile-screenshot {
+      aspect-ratio: 9/16;
+      max-width: 200px;
+      margin: 0 auto;
+      object-fit: contain;
+      background: #f8fafc;
+    }
+    .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+    .kpi { padding: 12px; border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+
+    footer { border-top: 1px solid var(--card-border); margin-top: 32px; padding: 24px 0 40px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand-info">
+        <div class="brand">
+          <img src="profile_pic.jpg" alt="Nathan Ashworth" class="logo" />
+          <span>Nathan Ashworth</span>
+        </div>
+        <span class="pill">Data Analytics • Visualizations • Python</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- LIST VIEW -->
+    <div id="list-view">
+      <section class="hero">
+        <h1>Hi, I'm Nathan — I blend data and product to ship clean, useful information.</h1>
+        <p>
+          I'm a Senior Business Analytics student at Trinity University with hands‑on experience in
+          data analysis, visualization, and front‑end development. Below are a few projects I'm proud of.
+          This site is intentionally simple and easy to understand - just like data should be.
+        </p>
+        <div class="actions">
+          <a class="btn success" href="#projects">See projects</a>
+          <a class="btn ghost resume" href="https://drive.google.com/file/d/1EaqlD57dE7iX5D6b06zxt3G85Z-A6sYC/view?usp=sharing" target="_blank">Download résumé (PDF)</a>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 class="section-title" id="projects-title">Selected Projects</h2>
+        <div class="grid">
+          <!-- Project 1: Allergen Life -->
+          <article class="card" data-route="#detail-allergen" aria-labelledby="allergen-title">
+            <div class="card-content">
+              <h3 id="allergen-title">Allergen Life - Mobile App</h3>
+              <p>
+                Helping people with food allergies find places they can eat. Users can browse allergy menus,
+                see community ratings by allergen, and filter restaurants by safety and menu detail. Built with React Native
+                and a Postgres backend.
+              </p>
+              <div class="tags">
+                <span class="tag">React Native</span>
+                <span class="tag">Expo</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Clerk Auth</span>
+                <span class="tag">Maps/Geospatial</span>
+              </div>
+              <div class="actions">
+                <a class="btn ghost" href="https://apps.apple.com/us/app/allergenlife/id6557033763">App Store</a>
+              </div>
+            </div>
+            <img src="app_icon.webp" alt="Allergen Life app icon" class="card-image" />
+          </article>
+
+          <!-- Project 2: Kaggle Housing Prices -->
+          <article class="card" data-route="#detail-p2" aria-labelledby="p2-title">
+            <div class="card-content">
+              <h3 id="p2-title">Kaggle Housing Prices — Predictive Modeling</h3>
+              <p>
+                Built machine learning models to predict house prices using the Kaggle Housing dataset. Performed feature engineering, 
+                data visualization, and model comparison to achieve competitive accuracy in price prediction.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">pandas</span><span class="tag">Visualization</span>
+              </div>
+            </div>
+            <img src="graph_points_kaggle.png" alt="Housing price analysis" class="card-image" />
+          </article>
+
+          <!-- Project 3: Multi-Linear Regression -->
+          <article class="card" data-route="#detail-p3" aria-labelledby="p3-title">
+            <div class="card-content">
+              <h3 id="p3-title">County Urbanization — Multi-Linear Regression</h3>
+              <p>
+                Analyzed relationships between geographical and demographic factors and county urbanization patterns. 
+                Combined multiple datasets to explore how land area, water area, and age demographics predict urban vs rural classification.
+              </p>
+              <div class="tags">
+                <span class="tag">R</span><span class="tag">Multiple Regression</span><span class="tag">Stepwise Analysis</span><span class="tag">Data Merging</span>
+              </div>
+            </div>
+            <img src="linear_rural.png" alt="County urbanization analysis" class="card-image" />
+          </article>
+           <!-- Project 4: Multi-Linear Regression -->
+            <article class="card" data-route="#detail-p4" aria-labelledby="p4-title">
+              <div class="card-content">
+                <h3 id="p4-title">Titanic Survival Prediction — Data Analysis</h3>
+                <p>
+                  Analyzed passenger survival patterns using the Titanic dataset on Kaggle.
+                  Explored relationships between age, sex, and survival outcomes through visualizations,
+                  and trained machine learning models to predict survival probabilities. Achieved a 
+                  Kaggle accuracy score of <strong>0.77</strong>.
+                </p>
+                <div class="tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">pandas</span>
+                  <span class="tag">Seaborn</span>
+                  <span class="tag">Matplotlib</span>
+                  <span class="tag">Machine Learning</span>
+                </div>
+              </div>
+              <img src="titanic_boxplot.png" alt="Titanic survival boxplot visualization" class="card-image" />
+            </article>
+
+
+        </div>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <h2 class="section-title" id="skills-title">Skills</h2>
+        <div class="chips">
+          <span class="chip">Python (pandas, matplotlib)</span>
+          <span class="chip">R (tidyverse, ggplot2)</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Excel</span>
+          <span class="chip">Figma</span>
+          <span class="chip">React / React Native</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Tableau</span>
+          <span class="chip">APIs & Auth</span>
+          <span class="chip">Geo / Mapping</span>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 class="section-title" id="contact-title">Contact</h2>
+        <p>
+          Email: <a href="mailto:nashwort@trinity.edu">Nathanashworth24@gmail.com</a> • 
+          <a href="https://www.linkedin.com/in/nathan-ashworth-869752216" target="_blank">LinkedIn</a> • <a href="#">GitHub</a>
+        </p>
+      </section>
+    </div>
+
+    <!-- DETAIL VIEWS -->
+    <section id="detail-allergen" class="detail hidden" aria-labelledby="detail-allergen-title">
+      <a class="back" href="#projects" data-route>&larr; Back to projects</a>
+      <h2 id="detail-allergen-title">Allergen Life — Case Study</h2>
+      <p class="meta">React Native • Expo • PostgreSQL • Clerk • Geospatial
+        <br />Role: Founder/Developer • Status: App Store</p>
+
+      <div class="kpis">
+        <div class="kpi"><strong>~600</strong><br/>Top chains mapped</div>
+        <div class="kpi"><strong>1M+</strong><br/>Places indexed</div>
+        <div class="kpi"><strong>&lt;1.5s</strong><br/>target search latency</div>
+      </div>
+
+      <h3>Problem</h3>
+      <p>People with food allergies struggle to quickly verify where they can safely eat. Allergy menus are inconsistent, and reviews rarely specify allergens.</p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li>Schema for per‑allergen ratings (top 9) + restaurant metadata.</li>
+        <li>Clerk auth; location‑based queries with de‑duplication between chains and local places.</li>
+        <li>Lean mobile UI to filter by menu availability and safety score.</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
+        <li>Faster decision‑making for diners; clear safety signals at a glance.</li>
+        <li>Architecture ready for sponsorships and city‑level rollouts.</li>
+      </ul>
+
+      <h3>App Screenshots</h3>
+      <div class="gallery three-col">
+        <figure>
+          <img src="search_screen.png" alt="Search screen" class="mobile-screenshot" />
+        </figure>
+        <figure>
+          <img src="restaurant_screen.png" alt="Restaurant screen" class="mobile-screenshot" />
+        </figure>
+        <figure>
+          <img src="home_screen.png" alt="Home screen" class="mobile-screenshot" />
+        </figure>
+      </div>
+
+      <div class="actions" style="margin-top:14px">
+        <a class="btn" href="https://apps.apple.com/us/app/allergenlife/id6557033763">App Store</a>
+      </div>
+    </section>
+
+    <section id="detail-p2" class="detail hidden" aria-labelledby="detail-p2-title">
+      <a class="back" href="#projects" data-route>&larr; Back to projects</a>
+      <h2 id="detail-p2-title">Kaggle Housing Prices — Predictive Modeling</h2>
+      <p class="meta">Python • Scikit-learn • pandas • Feature Engineering</p>
+
+      <h3>Summary</h3>
+      <p>Developed machine learning models to predict house prices using the Kaggle Housing dataset. Applied feature engineering techniques, explored data relationships through visualization, and compared multiple algorithms to optimize prediction accuracy.</p>
+
+      <h3>Problem</h3>
+      <p>House price prediction requires understanding complex relationships between property features. The challenge was to identify the most predictive variables and build an accurate model from 79 different features in the dataset.</p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li>Conducted bivariate analysis on top 25 correlated variables to understand feature relationships.</li>
+        <li>Applied backwards stepwise regression to systematically eliminate non-significant predictors.</li>
+        <li>Performed comprehensive feature engineering and data preprocessing.</li>
+        <li>Used correlation analysis and visualization to identify key price drivers.</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
+        <li>Achieved 0.901 correlation coefficient between predicted and actual house prices.</li>
+        <li>Successfully identified the most impactful features through stepwise regression.</li>
+        <li>Created interpretable visualizations showing price relationships and model performance.</li>
+      </ul>
+
+      <h3>Analysis Gallery</h3>
+      <div class="gallery">
+        <figure>
+          <img src="graph_points_kaggle.png" alt="Scatter plot analysis" />
+        </figure>
+        <figure>
+          <img src="boxplot_kaggle.png" alt="Box plot distributions" />
+        </figure>
+        <figure>
+          <img src="heatmap_kaggle.png" alt="Correlation heatmap" />
+        </figure>
+        <figure>
+          <img src="error_graph_kaggle.png" alt="Model error analysis" />
+        </figure>
+      </div>
+    </section>
+
+    <section id="detail-p3" class="detail hidden" aria-labelledby="detail-p3-title">
+      <a class="back" href="#projects" data-route>&larr; Back to projects</a>
+      <h2 id="detail-p3-title">County Urbanization — Multi-Linear Regression</h2>
+      <p class="meta">R • Multiple Regression • Stepwise Analysis • Data Merging</p>
+
+      <h3>Summary</h3>
+      <p>Conducted comprehensive analysis of county-level urbanization patterns using multiple linear regression. Combined geographical and demographic datasets to examine relationships between land area, water area, age demographics, and urban/rural classification across US counties.</p>
+
+      <h3>Problem</h3>
+      <p>Understanding what factors drive urbanization patterns across counties is complex. The challenge was to determine whether geographical characteristics (land/water area) and demographic factors (age distribution) could reliably predict urban versus rural county classification.</p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li>Merged two datasets: geographical county data and demographic age distribution data.</li>
+        <li>Applied data cleaning including outlier detection and ceiling implementation for land areas >2000 sq miles.</li>
+        <li>Performed multiple linear regression analysis testing various combinations of predictors.</li>
+        <li>Used backwards stepwise regression to identify most significant predictors.</li>
+        <li>Created feature engineering including LandWaterRatio and 18-65 age group calculations.</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
+        <li>Part 1 (Geography): Found minimal correlation between land/water area and urbanization (R² = 0.044).</li>
+        <li>Part 2 (Demographics): Age-based model achieved R² = 0.299, explaining ~30% of urbanization variance.</li>
+        <li>Key finding: Higher percentage of 65+ population negatively correlates with urbanization.</li>
+        <li>Stepwise regression confirmed age demographics are more predictive than geographical factors alone.</li>
+      </ul>
+
+      <h3>Analysis Visualizations</h3>
+      <div class="gallery">
+        <figure>
+          <img src="65_rural.png" alt="Age 65+ vs Rural correlation" />
+        </figure>
+        <figure>
+          <img src="85_rural.png" alt="Age 85+ vs Rural correlation" />
+        </figure>
+        <figure>
+          <img src="linear_rural.png" alt="Linear regression analysis" />
+        </figure>
+        <figure>
+          <img src="residuals_rural.png" alt="Residuals analysis" />
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="y"></span> Nathan Ashworth. Built with semantic HTML & vanilla CSS.</small>
+    </div>
+  </footer>
+
+  <script>
+    // Create sample charts for project cards
+    function createChart(canvasId, type) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      const size = 80;
+      
+      // Set canvas size for high DPI
+      canvas.width = size * 2;
+      canvas.height = size * 2;
+      canvas.style.width = size + 'px';
+      canvas.style.height = size + 'px';
+      ctx.scale(2, 2);
+      
+      // Clear canvas
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--card').trim();
+      ctx.fillRect(0, 0, size, size);
+      
+      if (type === 'line') {
+        // Line chart with trend
+        const points = [
+          [15, 50], [25, 45], [35, 40], [45, 35], [55, 30], [65, 25]
+        ];
+        ctx.strokeStyle = '#06b6d4';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(points[0][0], points[0][1]);
+        points.slice(1).forEach(point => ctx.lineTo(point[0], point[1]));
+        ctx.stroke();
+        
+        // Data points
+        ctx.fillStyle = '#7c3aed';
+        points.forEach(point => {
+          ctx.beginPath();
+          ctx.arc(point[0], point[1], 2, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        
+        // Axes
+        ctx.strokeStyle = '#94a3b8';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(10, 60);
+        ctx.lineTo(70, 60);
+        ctx.moveTo(10, 60);
+        ctx.lineTo(10, 15);
+        ctx.stroke();
+      }
+    }
+    
+    // Simple hash router to switch between list view and detail pages
+    (function(){
+      const list = document.getElementById('list-view');
+      const details = ['detail-allergen','detail-p2','detail-p3'].map(id=>document.getElementById(id));
+
+      function render(){
+        const hash = location.hash.replace('#','');
+        const match = details.find(d => d.id === hash);
+        if (match){
+          list.classList.add('hidden');
+          details.forEach(d => d.classList.toggle('hidden', d !== match));
+          window.scrollTo({top: 0, behavior: 'instant'});
+        } else {
+          list.classList.remove('hidden');
+          details.forEach(d => d.classList.add('hidden'));
+        }
+      }
+
+      window.addEventListener('hashchange', render);
+      render();
+
+      // Add click handlers for cards
+      document.querySelectorAll('.card[data-route]').forEach(card => {
+        card.addEventListener('click', (e) => {
+          // Don't trigger if clicking on external links
+          if (e.target.closest('a[href^="http"]')) return;
+          
+          const route = card.getAttribute('data-route');
+          window.location.hash = route;
+        });
+      });
+
+      // Create charts after DOM loads
+      setTimeout(() => {
+        createChart('dashboard-chart', 'line');
+      }, 100);
+
+      // year
+      document.getElementById('y').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
