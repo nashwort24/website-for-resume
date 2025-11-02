@@ -252,6 +252,10 @@
               <div class="tags">
                 <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">pandas</span><span class="tag">Visualization</span>
               </div>
+                <div class="actions">
+                  <a class="btn ghost" href="machine%20learning%20kaggle%20(7).ipynb" download>Download Python Code</a>
+                </div>
+
             </div>
             <img src="graph_points_kaggle.png" alt="Housing price analysis" class="card-image" />
           </article>
@@ -366,49 +370,47 @@
         <a class="btn" href="https://apps.apple.com/us/app/allergenlife/id6557033763">App Store</a>
       </div>
     </section>
+<section id="detail-p2" class="detail hidden" aria-labelledby="detail-p2-title">
+  <a class="back" href="#projects" data-route>&larr; Back to projects</a>
+  <h2 id="detail-p2-title">Kaggle Housing Prices — Predictive Modeling</h2>
+  <p class="meta">Python • Scikit-learn • pandas • Feature Engineering</p>
 
-    <section id="detail-p2" class="detail hidden" aria-labelledby="detail-p2-title">
-      <a class="back" href="#projects" data-route>&larr; Back to projects</a>
-      <h2 id="detail-p2-title">Kaggle Housing Prices — Predictive Modeling</h2>
-      <p class="meta">Python • Scikit-learn • pandas • Feature Engineering</p>
+  <h3>Summary</h3>
+  <p>
+    Built regression models to predict housing prices using Kaggle’s “House Prices: Advanced Regression Techniques” dataset.
+    Applied preprocessing, feature engineering, and algorithm comparison to identify the best-performing model.
+  </p>
 
-      <h3>Summary</h3>
-      <p>Developed machine learning models to predict house prices using the Kaggle Housing dataset. Applied feature engineering techniques, explored data relationships through visualization, and compared multiple algorithms to optimize prediction accuracy.</p>
+  <h3>Problem</h3>
+  <p>
+    Predicting housing prices involves understanding complex interactions between 79 property features.
+    The challenge was to clean the data, select significant predictors, and achieve strong generalization on unseen data.
+  </p>
 
-      <h3>Problem</h3>
-      <p>House price prediction requires understanding complex relationships between property features. The challenge was to identify the most predictive variables and build an accurate model from 79 different features in the dataset.</p>
+  <h3>Approach</h3>
+  <ul>
+    <li>Performed data cleaning and imputation for missing numerical and categorical values.</li>
+    <li>Engineered new features (e.g., TotalSF, OverallQual²) to capture nonlinear relationships.</li>
+    <li>Used correlation analysis and visualizations to identify top predictive features.</li>
+    <li>Trained and compared multiple regression models including Ridge, Lasso, and Random Forest.</li>
+  </ul>
 
-      <h3>Approach</h3>
-      <ul>
-        <li>Conducted bivariate analysis on top 25 correlated variables to understand feature relationships.</li>
-        <li>Applied backwards stepwise regression to systematically eliminate non-significant predictors.</li>
-        <li>Performed comprehensive feature engineering and data preprocessing.</li>
-        <li>Used correlation analysis and visualization to identify key price drivers.</li>
-      </ul>
+  <h3>Results</h3>
+  <ul>
+    <li>Achieved an <strong>R² of 0.90</strong> on the validation set and strong Kaggle leaderboard performance.</li>
+    <li>Feature engineering improved model interpretability and predictive accuracy.</li>
+    <li>Visualized relationships between predicted and actual prices to validate model fit.</li>
+  </ul>
 
-      <h3>Results</h3>
-      <ul>
-        <li>Achieved 0.901 correlation coefficient between predicted and actual house prices.</li>
-        <li>Successfully identified the most impactful features through stepwise regression.</li>
-        <li>Created interpretable visualizations showing price relationships and model performance.</li>
-      </ul>
+  <h3>Analysis Gallery</h3>
+  <div class="gallery">
+    <figure><img src="graph_points_kaggle.png" alt="Predicted vs actual prices" /></figure>
+    <figure><img src="boxplot_kaggle.png" alt="Feature distribution boxplots" /></figure>
+    <figure><img src="heatmap_kaggle.png" alt="Feature correlation heatmap" /></figure>
+    <figure><img src="error_graph_kaggle.png" alt="Model error residual plot" /></figure>
+  </div>
+</section>
 
-      <h3>Analysis Gallery</h3>
-      <div class="gallery">
-        <figure>
-          <img src="graph_points_kaggle.png" alt="Scatter plot analysis" />
-        </figure>
-        <figure>
-          <img src="boxplot_kaggle.png" alt="Box plot distributions" />
-        </figure>
-        <figure>
-          <img src="heatmap_kaggle.png" alt="Correlation heatmap" />
-        </figure>
-        <figure>
-          <img src="error_graph_kaggle.png" alt="Model error analysis" />
-        </figure>
-      </div>
-    </section>
 
     <section id="detail-p3" class="detail hidden" aria-labelledby="detail-p3-title">
       <a class="back" href="#projects" data-route>&larr; Back to projects</a>
