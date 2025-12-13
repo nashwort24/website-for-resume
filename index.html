@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nathan Ashworth — Projects</title>
-  <meta name="description" content="Portfolio of Nathan Ashworth — data/analytics & front‑end projects, including Allergen Life." />
+  <meta name="description" content="Portfolio of Nathan Ashworth — data/analytics & front‑end projects." />
   <meta name="color-scheme" content="light dark" />
   <style>
     :root {
@@ -18,7 +18,7 @@
       --card: #0f172a;      /* slate */
       --card-border: #1f2a4a;
       --accent: #22c55e;    /* green */
-      --shadow: 0 10px 25px rgba(0,0,0,.35);
+      --shadow: 0 5px 15px rgba(0,0,0,.15); /* REDUCED OPACITY */
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -32,7 +32,7 @@
         --card: #ffffff;
         --card-border: #e2e8f0;
         --accent: #16a34a;
-        --shadow: 0 10px 20px rgba(2,8,23,.08);
+        --shadow: 0 5px 10px rgba(2,8,23,.04); /* REDUCED OPACITY */
       }
     }
 
@@ -76,6 +76,7 @@
       background: linear-gradient(180deg, color-mix(in oklab, var(--card) 70%, transparent), var(--card));
       color: var(--text); text-decoration: none; font-weight: 600; letter-spacing: .2px;
       box-shadow: var(--shadow);
+      cursor: pointer;
     }
     .btn:hover { transform: translateY(-1px); }
 
@@ -89,7 +90,7 @@
 
     /* Hero */
     .hero { padding: 56px 0 32px; }
-    .hero h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin: 0 0 10px; }
+    h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin: 0 0 10px; }
     .hero p { max-width: 70ch; margin: 0 0 18px; color: var(--muted); }
     .pill {
       display: inline-flex; gap: 8px; align-items: center;
@@ -131,6 +132,11 @@
       border: 1px solid var(--card-border);
       flex-shrink: 0;
     }
+    .card-image.placeholder {
+        display: grid; place-items: center;
+        background: linear-gradient(135deg, var(--brand-2), var(--bg));
+        color: white; font-size: 24px; font-weight: bold;
+    }
     @media (min-width: 720px) {
       .card { grid-column: span 6; }
     }
@@ -140,7 +146,7 @@
     .card p { margin: 0 0 12px; color: var(--muted); }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
     .tag { font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px dashed var(--card-border); color: var(--muted); }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .actions { display: flex; flex-wrap: nowrap; gap: 10px; align-items: center; }
     .btn.ghost { background: transparent; border-style: dashed; opacity: .95; }
     .btn.success { background: linear-gradient(180deg, color-mix(in oklab, var(--brand-2) 22%, var(--card)), var(--card)); }
     .btn.resume { background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 22%, var(--card)), var(--card)); }
@@ -186,7 +192,8 @@
     <div class="container nav">
       <div class="brand-info">
         <div class="brand">
-          <img src="profile_pic.jpg" alt="Nathan Ashworth" class="logo" />
+          <!-- Placeholder if no image exists -->
+          <img src="profile_pic.jpg" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5uYW1lLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5MDkwYjIiIHN0cm9rZS13aWR0aD0iMiI+PGNpcmNsZSBjeD0iMTIiIGN5PSI4IiByPSI0Ii8+PHBhdGggZD0iTTYgMjF2Mi0yYTYgNiAwIDAgMSAxMi0ydiIyIi8+PC9zdmc+'" alt="Nathan Ashworth" class="logo" />
           <span>Nathan Ashworth</span>
         </div>
         <span class="pill">Data Analytics • Visualizations • Python</span>
@@ -203,14 +210,15 @@
     <!-- LIST VIEW -->
     <div id="list-view">
       <section class="hero">
-        <h1>Hi, I'm Nathan — I blend data and product to ship clean, useful information.</h1>
+        <!-- UPDATED HEADING -->
+        <h1>Hi, I'm Nathan. I deliver clean, useful information from complicated data.</h1>
         <p>
           I'm a Senior Business Analytics student at Trinity University with hands‑on experience in
-          data analysis, visualization, and front‑end development. Below are a few projects I'm proud of.
-          This site is intentionally simple and easy to understand - just like data should be.
+          Data Analysis, Visualization, and Machine Learning. Below are a few projects I'm proud of.
         </p>
         <div class="actions">
-          <a class="btn success" href="#projects">See projects</a>
+          <!-- UPDATED: Replaced "See projects" button with "Cover Letter" button linking to PDF -->
+          <a class="btn success" href="Nathan Ashworth Cover Letter (4).pdf" target="_blank">Cover Letter</a>
           <a class="btn ghost resume" href="https://drive.google.com/file/d/14TTWFAXkcB5L2Qvy4WIrAFA2lSbyCM1J/view?usp=sharing" target="_blank">Download résumé (PDF)</a>
         </div>
       </section>
@@ -218,6 +226,32 @@
       <section id="projects" aria-labelledby="projects-title">
         <h2 class="section-title" id="projects-title">Selected Projects</h2>
         <div class="grid">
+          
+          <!-- Project: Sunoco Consulting -->
+          <article class="card" data-route="#detail-sunoco" aria-labelledby="sunoco-title">
+            <div class="card-content">
+              <h3 id="sunoco-title">Sunoco Consulting — Demand Prediction</h3>
+              <p>
+                A consulting project to predict high-demand days for fuel sales. Built a CatBoost classification model focusing on 
+                maximizing the True Positive/False Positive ratio for more efficient resource allocation.
+              </p>
+              <div class="tags">
+                <span class="tag">CatBoost</span>
+                <span class="tag">Time Series</span>
+                <span class="tag">Feature Engineering</span>
+                <span class="tag">Python</span>
+              </div>
+              <div class="actions">
+                <!-- UPDATED TO GOOGLE DRIVE LINK -->
+                <a class="btn ghost" href="https://drive.google.com/file/d/1c9u76OXVPvkkjXm2lYuy-6iXH7Qmeak5/view?usp=drive_link" download="sunoco-notebook.ipynb" target="_blank">Download Notebook</a>
+                <!-- UPDATED TO GOOGLE DRIVE LINK -->
+                <a class="btn ghost" href="https://drive.google.com/file/d/1ahLQGSI-8hqX6uSfDQ7i5tsWz2RGFP1N/view?usp=sharing" download="sunoco-raw-data.csv" target="_blank">Raw Data (CSV)</a>
+              </div>
+            </div>
+            <!-- Placeholder icon for Sunoco -->
+            <div class="card-image placeholder">S</div>
+          </article>
+
           <!-- Project 1: Allergen Life -->
           <article class="card" data-route="#detail-allergen" aria-labelledby="allergen-title">
             <div class="card-content">
@@ -232,13 +266,14 @@
                 <span class="tag">Expo</span>
                 <span class="tag">PostgreSQL</span>
                 <span class="tag">Clerk Auth</span>
-                <span class="tag">Maps/Geospatial</span>
+                <span class="tag">Maps</span>
               </div>
               <div class="actions">
-                <a class="btn ghost" href="https://apps.apple.com/us/app/allergenlife/id6557033763">App Store</a>
+                <!-- CARD ACTION LINK REMAINS EXTERNAL -->
+                <a class="btn ghost" href="https://github.com/nashwort24/Allergen---Life/tree/main/allergen_life-master" target="_blank">GitHub</a>
               </div>
             </div>
-            <img src="app_icon.webp" alt="Allergen Life app icon" class="card-image" />
+            <img src="app_icon.webp" alt="Allergen Life app icon" class="card-image" onerror="this.style.display='none'" />
           </article>
 
           <!-- Project 2: Kaggle Housing Prices -->
@@ -252,15 +287,15 @@
               <div class="tags">
                 <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">pandas</span><span class="tag">Visualization</span>
               </div>
-                <div class="actions">
-                  <a class="btn ghost" href="machine%20learning%20kaggle%20(7).ipynb" download>Download Python Code</a>
-                </div>
-
+              <div class="actions">
+                  <!-- UPDATED TO GOOGLE DRIVE LINK -->
+                  <a class="btn ghost" href="https://drive.google.com/file/d/1pKJ6AxrgQACMteOw-QSWaDo-wCK9t23N/view?usp=drive_link" download="kaggle-housing-notebook.ipynb" target="_blank">Download Notebook</a>
+              </div>
             </div>
-            <img src="graph_points_kaggle.png" alt="Housing price analysis" class="card-image" />
+            <img src="graph_points_kaggle.png" alt="Housing price analysis" class="card-image" onerror="this.style.display='none'" />
           </article>
 
-          <!-- Project 3: Multi-Linear Regression -->
+          <!-- Project 3: County Urbanization -->
           <article class="card" data-route="#detail-p3" aria-labelledby="p3-title">
             <div class="card-content">
               <h3 id="p3-title">County Urbanization — Multi-Linear Regression</h3>
@@ -269,32 +304,35 @@
                 Combined multiple datasets to explore how land area, water area, and age demographics predict urban vs rural classification.
               </p>
               <div class="tags">
-                <span class="tag">R</span><span class="tag">Multiple Regression</span><span class="tag">Stepwise Analysis</span><span class="tag">Data Merging</span>
+                <span class="tag">R</span><span class="tag">Multiple Regression</span><span class="tag">Stepwise Analysis</span>
               </div>
             </div>
-            <img src="linear_rural.png" alt="County urbanization analysis" class="card-image" />
+            <img src="linear_rural.png" alt="County urbanization analysis" class="card-image" onerror="this.style.display='none'" />
           </article>
-           <!-- Project 4: Multi-Linear Regression -->
-            <article class="card" data-route="#detail-p4" aria-labelledby="p4-title">
+
+          <!-- Project 4: Titanic Survival -->
+          <article class="card" data-route="#detail-p4" aria-labelledby="p4-title">
               <div class="card-content">
-                <h3 id="p4-title">Titanic Survival Prediction — Data Analysis</h3>
+                <!-- CARD TITLE UPDATED -->
+                <h3 id="p4-title">Titanic Survival Prediction — Top 1% Submission</h3>
                 <p>
-                  Analyzed passenger survival patterns using the Titanic dataset on Kaggle.
+                  Analyzed passenger survival patterns using the famous Titanic dataset on Kaggle.
                   Explored relationships between age, sex, and survival outcomes through visualizations,
-                  and trained machine learning models to predict survival probabilities. Achieved a 
-                  Kaggle accuracy score of <strong>0.77</strong>.
+                  and trained machine learning models to predict survival probabilities.
                 </p>
                 <div class="tags">
                   <span class="tag">Python</span>
                   <span class="tag">pandas</span>
                   <span class="tag">Seaborn</span>
-                  <span class="tag">Matplotlib</span>
-                  <span class="tag">Machine Learning</span>
+                  <span class="tag">ML</span>
+                </div>
+                <div class="actions">
+                    <!-- UPDATED TO GOOGLE DRIVE LINK -->
+                    <a class="btn ghost" href="https://drive.google.com/file/d/10UAJB6TN1qrkUQ6wyIEcbwBca8mDLLjs/view?usp=sharing" download="titanic-notebook.ipynb" target="_blank">Download Notebook</a>
                 </div>
               </div>
-              <img src="titanic_boxplot.png" alt="Titanic survival boxplot visualization" class="card-image" />
+              <img src="titanic_boxplot.png" alt="titanic survival boxplot" class="card-image" onerror="this.style.display='none'" />
             </article>
-
 
         </div>
       </section>
@@ -310,8 +348,7 @@
           <span class="chip">React / React Native</span>
           <span class="chip">Power BI</span>
           <span class="chip">Tableau</span>
-          <span class="chip">APIs & Auth</span>
-          <span class="chip">Geo / Mapping</span>
+          <span class="chip">CatBoost / XGBoost</span>
         </div>
       </section>
 
@@ -319,22 +356,67 @@
         <h2 class="section-title" id="contact-title">Contact</h2>
         <p>
           Email: <a href="mailto:nashwort@trinity.edu">Nathanashworth24@gmail.com</a> • 
-          <a href="https://www.linkedin.com/in/nathan-ashworth-869752216" target="_blank">LinkedIn</a> • <a href="#">GitHub</a>
+          <a href="https://www.linkedin.com/in/nathan-ashworth-869752216" target="_blank">LinkedIn</a>
         </p>
       </section>
     </div>
 
     <!-- DETAIL VIEWS -->
+
+    <!-- DETAIL: SUNOCO -->
+    <section id="detail-sunoco" class="detail hidden" aria-labelledby="detail-sunoco-title">
+      <a class="back" href="#projects" data-route>&larr; Back to projects</a>
+      <h2 id="detail-sunoco-title">Sunoco Consulting — Demand Prediction</h2>
+      <p class="meta">Python • CatBoost • Time Series • Feature Engineering</p>
+
+      <div class="kpis">
+        <div class="kpi"><strong>4.5</strong><br/>TP/FP Ratio</div>
+        <div class="kpi"><strong>0.60</strong><br/>Prob. Threshold</div>
+        <div class="kpi"><strong>52-Week</strong><br/>Lag Features</div>
+      </div>
+
+      <h3>Problem</h3>
+      <p>
+        Sunoco needed to accurately predict "High Demand" days to optimize inventory and staffing. 
+        A standard accuracy score wasn't enough; the business cost of a False Positive (staffing up for no demand) 
+        was high, but missing a True Positive (understaffing during a rush) was worse. 
+        The goal was to maximize the <strong>True Positive to False Positive (TP/FP) ratio</strong>.
+      </p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li><strong>Model Selection:</strong> Evaluated Random Forest, XGBoost, and CatBoost. CatBoost yielded the best stability.</li>
+        <li><strong>Target Engineering:</strong> defined "High Demand" dynamically as volume above the rolling 70th percentile to account for seasonal shifts.</li>
+        <li><strong>Feature Engineering:</strong> Created 52-week lag features to capture annual seasonality and included macroeconomic indicators like the "Crack Spread."</li>
+        <li><strong>Validation:</strong> Used <code>TimeSeriesSplit</code> to respect the temporal order of data during training.</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
+        <li>Successfully broke the client's benchmark of a 2.8 TP/FP ratio.</li>
+        <li>Implemented a conservative probability threshold (0.60) to filter out noise and ensure high confidence in "High Demand" predictions.</li>
+      </ul>
+      
+      <div class="actions" style="margin-top:14px">
+        <!-- UPDATED TO GOOGLE DRIVE LINK -->
+        <a class="btn" href="https://drive.google.com/file/d/1c9u76OXVPvkkjXm2lYuy-6iXH7Qmeak5/view?usp=drive_link" download="sunoco-notebook.ipynb" target="_blank">Download Notebook</a>
+        <!-- UPDATED TO GOOGLE DRIVE LINK -->
+        <a class="btn" href="https://drive.google.com/file/d/1ahLQGSI-8hqX6uSfDQ7i5tsWz2RGFP1N/view?usp=sharing" download="sunoco-raw-data.csv" target="_blank">Raw Data (CSV)</a>
+      </div>
+    </section>
+
+
+    <!-- DETAIL: ALLERGEN -->
     <section id="detail-allergen" class="detail hidden" aria-labelledby="detail-allergen-title">
       <a class="back" href="#projects" data-route>&larr; Back to projects</a>
-      <h2 id="detail-allergen-title">Allergen Life — Case Study</h2>
+      <h2 id="detail-allergen-title">Allergen Life — Mobile App</h2>
       <p class="meta">React Native • Expo • PostgreSQL • Clerk • Geospatial
         <br />Role: Founder/Developer • Status: App Store</p>
 
       <div class="kpis">
         <div class="kpi"><strong>~600</strong><br/>Top chains mapped</div>
         <div class="kpi"><strong>1M+</strong><br/>Places indexed</div>
-        <div class="kpi"><strong>&lt;1.5s</strong><br/>target search latency</div>
+        <div class="kpi"><strong>&lt;1.5s</strong><br/>Search latency</div>
       </div>
 
       <h3>Problem</h3>
@@ -345,12 +427,6 @@
         <li>Schema for per‑allergen ratings (top 9) + restaurant metadata.</li>
         <li>Clerk auth; location‑based queries with de‑duplication between chains and local places.</li>
         <li>Lean mobile UI to filter by menu availability and safety score.</li>
-      </ul>
-
-      <h3>Results</h3>
-      <ul>
-        <li>Faster decision‑making for diners; clear safety signals at a glance.</li>
-        <li>Architecture ready for sponsorships and city‑level rollouts.</li>
       </ul>
 
       <h3>App Screenshots</h3>
@@ -367,78 +443,43 @@
       </div>
 
       <div class="actions" style="margin-top:14px">
-        <a class="btn" href="https://apps.apple.com/us/app/allergenlife/id6557033763">App Store</a>
+        <!-- CARD ACTION LINK REMAINS EXTERNAL -->
+        <a class="btn" href="https://github.com/nashwort24/Allergen---Life/tree/main/allergen_life-master" target="_blank">GitHub</a>
       </div>
     </section>
-<section id="detail-p2" class="detail hidden" aria-labelledby="detail-p2-title">
-  <a class="back" href="#projects" data-route>&larr; Back to projects</a>
-  <h2 id="detail-p2-title">Kaggle Housing Prices — Predictive Modeling</h2>
-  <p class="meta">Python • Scikit-learn • pandas • Feature Engineering</p>
 
-  <h3>Summary</h3>
-  <p>
-    Built regression models to predict housing prices using Kaggle’s “House Prices: Advanced Regression Techniques” dataset.
-    Applied preprocessing, feature engineering, and algorithm comparison to identify the best-performing model.
-  </p>
+    <!-- DETAIL: KAGGLE HOUSING -->
+    <section id="detail-p2" class="detail hidden" aria-labelledby="detail-p2-title">
+      <a class="back" href="#projects" data-route>&larr; Back to projects</a>
+      <h2 id="detail-p2-title">Kaggle Housing Prices — Predictive Modeling</h2>
+      <p class="meta">Python • Scikit-learn • pandas • Feature Engineering</p>
 
-  <h3>Problem</h3>
-  <p>
-    Predicting housing prices involves understanding complex interactions between 79 property features.
-    The challenge was to clean the data, select significant predictors, and achieve strong generalization on unseen data.
-  </p>
+      <h3>Summary</h3>
+      <p>
+        Built regression models to predict housing prices using Kaggle’s “House Prices: Advanced Regression Techniques” dataset.
+        Applied preprocessing, feature engineering, and algorithm comparison.
+      </p>
+      
+      <h3>Results</h3>
+      <ul>
+        <li>Achieved an <strong>R² of 0.90</strong> on the validation set.</li>
+        <li>Identified key predictors like Overall Quality and Living Area size.</li>
+      </ul>
 
-  <h3>Approach</h3>
-  <ul>
-    <li>Performed data cleaning and imputation for missing numerical and categorical values.</li>
-    <li>Engineered new features (e.g., TotalSF, OverallQual²) to capture nonlinear relationships.</li>
-    <li>Used correlation analysis and visualizations to identify top predictive features.</li>
-    <li>Trained and compared multiple regression models including Ridge, Lasso, and Random Forest.</li>
-  </ul>
+      <div class="gallery">
+        <figure><img src="graph_points_kaggle.png" alt="Predicted vs actual prices" /></figure>
+        <figure><img src="boxplot_kaggle.png" alt="Feature distribution boxplots" /></figure>
+      </div>
+    </section>
 
-  <h3>Results</h3>
-  <ul>
-    <li>Achieved an <strong>R² of 0.90</strong> on the validation set and strong Kaggle leaderboard performance.</li>
-    <li>Feature engineering improved model interpretability and predictive accuracy.</li>
-    <li>Visualized relationships between predicted and actual prices to validate model fit.</li>
-  </ul>
-
-  <h3>Analysis Gallery</h3>
-  <div class="gallery">
-    <figure><img src="graph_points_kaggle.png" alt="Predicted vs actual prices" /></figure>
-    <figure><img src="boxplot_kaggle.png" alt="Feature distribution boxplots" /></figure>
-    <figure><img src="heatmap_kaggle.png" alt="Feature correlation heatmap" /></figure>
-    <figure><img src="error_graph_kaggle.png" alt="Model error residual plot" /></figure>
-  </div>
-</section>
-
-
+    <!-- DETAIL: URBANIZATION -->
     <section id="detail-p3" class="detail hidden" aria-labelledby="detail-p3-title">
       <a class="back" href="#projects" data-route>&larr; Back to projects</a>
       <h2 id="detail-p3-title">County Urbanization — Multi-Linear Regression</h2>
       <p class="meta">R • Multiple Regression • Stepwise Analysis • Data Merging</p>
 
       <h3>Summary</h3>
-      <p>Conducted comprehensive analysis of county-level urbanization patterns using multiple linear regression. Combined geographical and demographic datasets to examine relationships between land area, water area, age demographics, and urban/rural classification across US counties.</p>
-
-      <h3>Problem</h3>
-      <p>Understanding what factors drive urbanization patterns across counties is complex. The challenge was to determine whether geographical characteristics (land/water area) and demographic factors (age distribution) could reliably predict urban versus rural county classification.</p>
-
-      <h3>Approach</h3>
-      <ul>
-        <li>Merged two datasets: geographical county data and demographic age distribution data.</li>
-        <li>Applied data cleaning including outlier detection and ceiling implementation for land areas >2000 sq miles.</li>
-        <li>Performed multiple linear regression analysis testing various combinations of predictors.</li>
-        <li>Used backwards stepwise regression to identify most significant predictors.</li>
-        <li>Created feature engineering including LandWaterRatio and 18-65 age group calculations.</li>
-      </ul>
-
-      <h3>Results</h3>
-      <ul>
-        <li>Part 1 (Geography): Found minimal correlation between land/water area and urbanization (R² = 0.044).</li>
-        <li>Part 2 (Demographics): Age-based model achieved R² = 0.299, explaining ~30% of urbanization variance.</li>
-        <li>Key finding: Higher percentage of 65+ population negatively correlates with urbanization.</li>
-        <li>Stepwise regression confirmed age demographics are more predictive than geographical factors alone.</li>
-      </ul>
+      <p>Analyzed county-level urbanization patterns. Found that age demographics were significantly more predictive of urban/rural status than geographical land/water area alone.</p>
 
       <h3>Analysis Visualizations</h3>
       <div class="gallery">
@@ -446,16 +487,55 @@
           <img src="65_rural.png" alt="Age 65+ vs Rural correlation" />
         </figure>
         <figure>
-          <img src="85_rural.png" alt="Age 85+ vs Rural correlation" />
-        </figure>
-        <figure>
           <img src="linear_rural.png" alt="Linear regression analysis" />
-        </figure>
-        <figure>
-          <img src="residuals_rural.png" alt="Residuals analysis" />
         </figure>
       </div>
     </section>
+
+    <!-- DETAIL: TITANIC (New!) -->
+    <section id="detail-p4" class="detail hidden" aria-labelledby="detail-p4-title">
+      <a class="back" href="#projects" data-route>&larr; Back to projects</a>
+      <!-- H2 DETAIL TITLE UPDATED -->
+      <h2 id="detail-p4-title">Titanic Survival Prediction — Top 1% Submission</h2>
+      <p class="meta">Python • Pandas • Machine Learning • Visualization</p>
+
+      <div class="kpis">
+        <div class="kpi"><strong>0.79</strong><br/>Accuracy Score</div>
+        <div class="kpi"><strong>891</strong><br/>Training Rows</div>
+        <div class="kpi"><strong>RFC</strong><br/>Random Forest</div>
+      </div>
+
+      <h3>Problem</h3>
+      <p>
+        The sinking of the Titanic is one of the most infamous shipwrecks in history. While there was some element of luck involved in surviving, 
+        some groups of people were more likely to survive than others. The challenge is to build a predictive model that answers the question: 
+        “what sorts of people were more likely to survive?”
+      </p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li><strong>Data Cleaning:</strong> Handled missing values for Age (imputation) and Cabin features.</li>
+        <li><strong>EDA:</strong> Visualized survival rates by Gender, Class, and Age groups using Seaborn.</li>
+        <li><strong>Modeling:</strong> Trained a Random Forest Classifier to predict survival binary (0/1).</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
+        <li>Achieved a Kaggle accuracy score of <strong>0.79</strong>.</li>
+        <li>Confirmed that "Sex" (Female) and "Pclass" (1st Class) were the strongest determinants of survival.</li>
+      </ul>
+
+      <div class="gallery">
+        <figure>
+          <img src="titanic_boxplot.png" alt="titanic boxplot visualization" />
+        </figure>
+      </div>
+      <div class="actions" style="margin-top:14px">
+        <!-- UPDATED TO GOOGLE DRIVE LINK -->
+        <a class="btn" href="https://drive.google.com/file/d/10UAJB6TN1qrkUQ6wyIEcbwBca8mDLLjs/view?usp=sharing" download="titanic-notebook.ipynb" target="_blank">Download Notebook</a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -472,23 +552,17 @@
       
       const ctx = canvas.getContext('2d');
       const size = 80;
-      
-      // Set canvas size for high DPI
       canvas.width = size * 2;
       canvas.height = size * 2;
       canvas.style.width = size + 'px';
       canvas.style.height = size + 'px';
       ctx.scale(2, 2);
       
-      // Clear canvas
       ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--card').trim();
       ctx.fillRect(0, 0, size, size);
       
       if (type === 'line') {
-        // Line chart with trend
-        const points = [
-          [15, 50], [25, 45], [35, 40], [45, 35], [55, 30], [65, 25]
-        ];
+        const points = [[15, 50], [25, 45], [35, 40], [45, 35], [55, 30], [65, 25]];
         ctx.strokeStyle = '#06b6d4';
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -496,64 +570,53 @@
         points.slice(1).forEach(point => ctx.lineTo(point[0], point[1]));
         ctx.stroke();
         
-        // Data points
         ctx.fillStyle = '#7c3aed';
         points.forEach(point => {
           ctx.beginPath();
           ctx.arc(point[0], point[1], 2, 0, Math.PI * 2);
           ctx.fill();
         });
-        
-        // Axes
-        ctx.strokeStyle = '#94a3b8';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(10, 60);
-        ctx.lineTo(70, 60);
-        ctx.moveTo(10, 60);
-        ctx.lineTo(10, 15);
-        ctx.stroke();
       }
     }
     
-    // Simple hash router to switch between list view and detail pages
+    // Router logic
     (function(){
       const list = document.getElementById('list-view');
-      const details = ['detail-allergen','detail-p2','detail-p3'].map(id=>document.getElementById(id));
+      // Added 'detail-p4' and 'detail-sunoco' to the router list
+      const details = ['detail-allergen','detail-p2','detail-p3','detail-p4','detail-sunoco'].map(id => document.getElementById(id));
 
       function render(){
         const hash = location.hash.replace('#','');
-        const match = details.find(d => d.id === hash);
+        const match = details.find(d => d && d.id === hash);
         if (match){
           list.classList.add('hidden');
-          details.forEach(d => d.classList.toggle('hidden', d !== match));
+          details.forEach(d => {
+             if(d) d.classList.toggle('hidden', d !== match);
+          });
           window.scrollTo({top: 0, behavior: 'instant'});
         } else {
           list.classList.remove('hidden');
-          details.forEach(d => d.classList.add('hidden'));
+          details.forEach(d => {
+             if(d) d.classList.add('hidden');
+          });
         }
       }
 
       window.addEventListener('hashchange', render);
       render();
 
-      // Add click handlers for cards
+      // Card click handlers
       document.querySelectorAll('.card[data-route]').forEach(card => {
         card.addEventListener('click', (e) => {
-          // Don't trigger if clicking on external links
-          if (e.target.closest('a[href^="http"]')) return;
+          // --- UPDATED: Ensure clicks on any anchor tag (link/button) inside the card do not navigate.
+          if (e.target.closest('a')) return;
           
           const route = card.getAttribute('data-route');
           window.location.hash = route;
         });
       });
 
-      // Create charts after DOM loads
-      setTimeout(() => {
-        createChart('dashboard-chart', 'line');
-      }, 100);
-
-      // year
+      // Year update
       document.getElementById('y').textContent = new Date().getFullYear();
     })();
   </script>
