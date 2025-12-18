@@ -64,7 +64,7 @@
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .2px; }
     .brand-info { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .logo {
-      width: 34px; height: 34px; border-radius: 9px;
+      width: 55px; height: 55px; border-radius: 9px;
       object-fit: cover;
       box-shadow: var(--shadow);
     }
@@ -167,6 +167,7 @@
     .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .gallery figure { margin: 0; }
     .gallery.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .gallery.one-col { display: grid; grid-template-columns: repeat(1, 1fr); gap: 12px; }
     .ph,
     .gallery img {
       width: 100%; aspect-ratio: 16/9; border-radius: 12px; border: 1px solid var(--card-border);
@@ -371,15 +372,15 @@
 
       <div class="kpis">
         <div class="kpi"><strong>4.5</strong><br/>TP/FP Ratio</div>
-        <div class="kpi"><strong>0.60</strong><br/>Prob. Threshold</div>
-        <div class="kpi"><strong>52-Week</strong><br/>Lag Features</div>
+        <div class="kpi"><strong>83%</strong><br/>Accuracy</div>
+        <div class="kpi"><strong>20</strong><br/>Features</div>
       </div>
 
       <h3>Problem</h3>
       <p>
         Sunoco needed to accurately predict "High Demand" days to optimize inventory and staffing. 
-        A standard accuracy score wasn't enough; the business cost of a False Positive (staffing up for no demand) 
-        was high, but missing a True Positive (understaffing during a rush) was worse. 
+        A standard accuracy score wasn't enough; the business cost of a False Positive (missing out on oil sales) 
+        was high, but missing a True Positive (overbuying when demand fell) was worse. 
         The goal was to maximize the <strong>True Positive to False Positive (TP/FP) ratio</strong>.
       </p>
 
@@ -393,9 +394,39 @@
 
       <h3>Results</h3>
       <ul>
-        <li>Successfully broke the client's benchmark of a 2.8 TP/FP ratio.</li>
-        <li>Implemented a conservative probability threshold (0.60) to filter out noise and ensure high confidence in "High Demand" predictions.</li>
+        <li>Successfully broke the client's benchmark of a 2.0 TP/FP ratio. (ended with a 4.5)</li>
       </ul>
+      <h3>Vizualizations</h3>
+      <ul>
+        <li><strong>Covid Shock:</strong> COVID significantly impacted oil demand, as it had a broad effect on the entire economy and travel. It was crucial for our model to take this into account.
+        We did this by incorporating a binary indicator variable for the pandemic period into our feature set.</li>
+      </ul>
+      <div class="gallery one-col">
+        <figure>
+          <img src="Sunoco_covid_shock.png" alt="Sunoco COVID shock visualization" />
+        </figure>
+      </div>
+      <ul>
+        <li>
+          <strong>COVID x The Economy:</strong> COVID didn't just impact oil demand, it literally impacted every facet of the economy. This is why creating a new variable accounting for covid was so important. 
+        </li>
+      </ul>
+      <div class="gallery one-col">
+        <figure>
+          <img src="Sunoco_overtime.png" alt="Sunoco COVID shock visualization" />
+        </figure>
+      </div>
+      </li>
+    </ul>
+      <ul>
+        <li><strong>Wild Swings in Demand by Year</strong> Depending on the year, the amount of "high-demand" oil weeks would vary wildly. This is why we ultimately ended up creating a variable that had a rolling 52 week average of "high-demand" weeks.</li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="Sunoco_percentage_high.png" alt="Sunoco jobless claims visualization" />
+        </figure>
+      </div>
       
       <div class="actions" style="margin-top:14px">
         <!-- UPDATED TO GOOGLE DRIVE LINK -->
