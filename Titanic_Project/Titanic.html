@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nathan Ashworth — Projects</title>
+  <meta name="description" content="Portfolio of Nathan Ashworth — data/analytics & front‑end projects." />
+  <meta name="color-scheme" content="light dark" />  
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+    <!-- DETAIL: TITANIC (New!) -->
+    <section id="detail-p4" class="detail" aria-labelledby="detail-p4-title">
+      <a class="back" href="/index.html" data-route>&larr; Back to projects</a>
+      <!-- H2 DETAIL TITLE UPDATED -->
+      <h2 id="detail-p4-title">Titanic Survival Prediction — Top 1% Submission</h2>
+      <p class="meta">Python • Pandas • Machine Learning • Visualization</p>
+
+      <div class="kpis">
+        <div class="kpi"><strong>0.79</strong><br/>Accuracy Score</div>
+        <div class="kpi"><strong>891</strong><br/>Training Rows</div>
+        <div class="kpi"><strong>RFC</strong><br/>Random Forest</div>
+      </div>
+
+      <h3>Problem</h3>
+      <p>
+        The sinking of the Titanic is one of the most infamous shipwrecks in history. While there was some element of luck involved in surviving, 
+        some groups of people were more likely to survive than others. The challenge is to build a predictive model that answers the question: 
+        “what sorts of people were more likely to survive?”
+      </p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li><strong>Data Cleaning:</strong> Handled missing values for Age (imputation) and Cabin features.</li>
+        <li><strong>EDA:</strong> Visualized survival rates by Gender, Class, and Age groups using Seaborn.</li>
+        <li><strong>Modeling:</strong> Trained a Random Forest Classifier to predict survival binary (0/1).</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
+        <li>Achieved a Kaggle accuracy score of <strong>0.79</strong>.</li>
+        <li>Confirmed that "Sex" (Female) and "Pclass" (1st Class) were the strongest determinants of survival.</li>
+      </ul>
+
+      <div class="gallery">
+        <figure>
+          <img src="titanic_boxplot.png" alt="titanic boxplot visualization" />
+        </figure>
+      </div>
+      <div class="actions" style="margin-top:14px">
+        <!-- UPDATED TO GOOGLE DRIVE LINK -->
+        <a class="btn" href="https://drive.google.com/file/d/10UAJB6TN1qrkUQ6wyIEcbwBca8mDLLjs/view?usp=sharing" download="titanic-notebook.ipynb" target="_blank">Download Notebook</a>
+      </div>
+    </section>
