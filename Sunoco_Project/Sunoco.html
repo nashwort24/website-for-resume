@@ -4,82 +4,109 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nathan Ashworth — Projects</title>
-  <meta name="description" content="Portfolio of Nathan Ashworth — data/analytics & front‑end projects." />
+  <meta name="description" content="Portfolio of Nathan Ashworth — data/analytics & front-end projects." />
   <meta name="color-scheme" content="light dark" />  
   <link rel="stylesheet" href="../style.css">
 </head>
 
-
-<!-- DETAIL: SUNOCO -->
- <body>
+<body>
+  <main class="page-container">
+    <!-- DETAIL: SUNOCO -->
     <section id="detail-sunoco" class="detail" aria-labelledby="detail-sunoco-title">
-      <a class="back" href="../index.html" data-route>&larr; Back to projects</a>
+      <a class="back" href="../index.html">&larr; Back to projects</a>
+
       <h2 id="detail-sunoco-title">Sunoco Consulting — Demand Prediction</h2>
       <p class="meta">Python • CatBoost • Time Series • Feature Engineering</p>
 
       <div class="kpis">
-        <div class="kpi"><strong>4.5</strong><br/>TP/FP Ratio</div>
-        <div class="kpi"><strong>83%</strong><br/>Accuracy</div>
-        <div class="kpi"><strong>20</strong><br/>Features</div>
+        <div class="kpi"><strong>4.5</strong><br>TP/FP Ratio</div>
+        <div class="kpi"><strong>83%</strong><br>Accuracy</div>
+        <div class="kpi"><strong>20</strong><br>Features</div>
       </div>
 
       <h3>Problem</h3>
       <p>
-        Sunoco needed to accurately predict "High Demand" days to optimize inventory and staffing. 
-        A standard accuracy score wasn't enough; the business cost of a False Positive (missing out on oil sales) 
-        was high, but missing a True Positive (overbuying when demand fell) was worse. 
-        The goal was to maximize the <strong>True Positive to False Positive (TP/FP) ratio</strong>.
+        Sunoco needed to accurately predict “High Demand” days to optimize inventory
+        and staffing. A standard accuracy score wasn’t enough; the business cost of a
+        False Positive (missing out on oil sales) was high, but missing a True Positive
+        (overbuying when demand fell) was worse. The goal was to maximize the
+        <strong>True Positive to False Positive (TP/FP) ratio</strong>.
       </p>
 
       <h3>Approach</h3>
       <ul>
         <li><strong>Model Selection:</strong> Evaluated Random Forest, XGBoost, and CatBoost. CatBoost yielded the best stability.</li>
-        <li><strong>Target Engineering:</strong> defined "High Demand" dynamically as volume above the rolling 70th percentile to account for seasonal shifts.</li>
-        <li><strong>Feature Engineering:</strong> Created 52-week lag features to capture annual seasonality and included macroeconomic indicators like the "Crack Spread."</li>
-        <li><strong>Validation:</strong> Used <code>TimeSeriesSplit</code> to respect the temporal order of data during training.</li>
+        <li><strong>Target Engineering:</strong> Defined “High Demand” dynamically as volume above the rolling 70th percentile.</li>
+        <li><strong>Feature Engineering:</strong> Created 52-week lag features and included macroeconomic indicators like the “Crack Spread.”</li>
+        <li><strong>Validation:</strong> Used <code>TimeSeriesSplit</code> to respect temporal ordering.</li>
       </ul>
 
       <h3>Results</h3>
       <ul>
-        <li>Successfully broke the client's benchmark of a 2.0 TP/FP ratio. (ended with a 4.5)</li>
+        <li>Successfully broke the client’s benchmark TP/FP ratio of 2.0 (ended at 4.5).</li>
       </ul>
-      <h3>Vizualizations</h3>
-      <ul>
-        <li><strong>Covid Shock:</strong> COVID significantly impacted oil demand, as it had a broad effect on the entire economy and travel. It was crucial for our model to take this into account.
-        We did this by incorporating a binary indicator variable for the pandemic period into our feature set.</li>
-      </ul>
-      <div class="gallery one-col">
-        <figure>
-          <img src="Sunoco_covid_shock.png" alt="Sunoco COVID shock visualization" />
-        </figure>
-      </div>
+
+      <h3>Visualizations</h3>
+
       <ul>
         <li>
-          <strong>COVID x The Economy:</strong> COVID didn't just impact oil demand, it literally impacted every facet of the economy. This is why creating a new variable accounting for covid was so important. 
+          <strong>COVID Shock:</strong> COVID significantly impacted oil demand across
+          the entire economy. We incorporated a binary indicator variable for the
+          pandemic period.
         </li>
-      </ul>
-      <div class="gallery one-col">
-        <figure>
-          <img src="Sunoco_overtime.png" alt="Sunoco COVID shock visualization" />
-        </figure>
-      </div>
-      </li>
-    </ul>
-      <ul>
-        <li><strong>Wild Swings in Demand by Year</strong> Depending on the year, the amount of "high-demand" oil weeks would vary wildly. This is why we ultimately ended up creating a variable that had a rolling 52 week average of "high-demand" weeks.</li>
       </ul>
 
       <div class="gallery one-col">
         <figure>
-          <img src="Sunoco_percentage_high.png" alt="Sunoco jobless claims visualization" />
+          <img src="Sunoco_covid_shock.png" alt="Sunoco COVID shock visualization">
         </figure>
       </div>
-      
+
+      <ul>
+        <li>
+          <strong>COVID × The Economy:</strong> COVID didn’t just impact oil demand—it
+          affected every facet of the economy, reinforcing the importance of the
+          pandemic indicator variable.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="Sunoco_overtime.png" alt="Sunoco overtime visualization">
+        </figure>
+      </div>
+
+      <ul>
+        <li>
+          <strong>Wild Swings in Demand by Year:</strong> The number of high-demand
+          weeks varied dramatically by year, motivating a rolling 52-week average
+          feature.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="Sunoco_percentage_high.png" alt="Sunoco high-demand percentage visualization">
+        </figure>
+      </div>
+
       <div class="actions" style="margin-top:14px">
-        <!-- UPDATED TO GOOGLE DRIVE LINK -->
-        <a class="btn" href="https://drive.google.com/file/d/1c9u76OXVPvkkjXm2lYuy-6iXH7Qmeak5/view?usp=drive_link" download="sunoco-notebook.ipynb" target="_blank">Download Notebook</a>
-        <!-- UPDATED TO GOOGLE DRIVE LINK -->
-        <a class="btn" href="https://drive.google.com/file/d/1ahLQGSI-8hqX6uSfDQ7i5tsWz2RGFP1N/view?usp=sharing" download="sunoco-raw-data.csv" target="_blank">Raw Data (CSV)</a>
+        <a
+          class="btn"
+          href="https://drive.google.com/file/d/1c9u76OXVPvkkjXm2lYuy-6iXH7Qmeak5/view?usp=drive_link"
+          target="_blank"
+        >
+          Download Notebook
+        </a>
+        <a
+          class="btn"
+          href="https://drive.google.com/file/d/1ahLQGSI-8hqX6uSfDQ7i5tsWz2RGFP1N/view?usp=sharing"
+          target="_blank"
+        >
+          Raw Data (CSV)
+        </a>
       </div>
     </section>
+  </main>
 </body>
+</html>

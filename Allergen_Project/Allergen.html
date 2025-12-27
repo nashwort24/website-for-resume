@@ -4,50 +4,62 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nathan Ashworth — Projects</title>
-  <meta name="description" content="Portfolio of Nathan Ashworth — data/analytics & front‑end projects." />
+  <meta name="description" content="Portfolio of Nathan Ashworth — data/analytics & front-end projects." />
   <meta name="color-scheme" content="light dark" />  
-  
+
   <link rel="stylesheet" href="../style.css">
 </head>
 
+<body>
+  <main class="page-container">
     <!-- DETAIL: ALLERGEN -->
     <section id="detail-allergen" class="detail" aria-labelledby="detail-allergen-title">
-      <a class="back" href="../index.html" data-route>&larr; Back to projects</a>
+      <a class="back" href="../index.html">&larr; Back to projects</a>
+
       <h2 id="detail-allergen-title">Allergen Life — Mobile App</h2>
-      <p class="meta">React Native • Expo • PostgreSQL • Clerk • Geospatial
-        <br />Role: Founder/Developer • Status: App Store</p>
+      <p class="meta">
+        React Native • Expo • PostgreSQL • Clerk • Geospatial
+        <br>Role: Founder/Developer • Status: App Store
+      </p>
 
       <div class="kpis">
-        <div class="kpi"><strong>~600</strong><br/>Top chains mapped</div>
-        <div class="kpi"><strong>1M+</strong><br/>Places indexed</div>
-        <div class="kpi"><strong>&lt;1.5s</strong><br/>Search latency</div>
+        <div class="kpi"><strong>~600</strong><br>Top chains mapped</div>
+        <div class="kpi"><strong>1M+</strong><br>Places indexed</div>
+        <div class="kpi"><strong>&lt;1.5s</strong><br>Search latency</div>
       </div>
 
       <h3>Problem</h3>
-      <p>People with food allergies struggle to quickly verify where they can safely eat. Allergy menus are inconsistent, and reviews rarely specify allergens.</p>
+      <p>
+        People with food allergies struggle to quickly verify where they can safely eat.
+        Allergy menus are inconsistent, and reviews rarely specify allergens.
+      </p>
 
       <h3>Approach</h3>
       <ul>
-        <li>Schema for per‑allergen ratings (top 9) + restaurant metadata.</li>
-        <li>Clerk auth; location‑based queries with de‑duplication between chains and local places.</li>
+        <li>Schema for per-allergen ratings (top 9) + restaurant metadata.</li>
+        <li>Clerk auth; location-based queries with de-duplication between chains and local places.</li>
         <li>Lean mobile UI to filter by menu availability and safety score.</li>
       </ul>
 
       <h3>App Screenshots</h3>
       <div class="gallery three-col">
         <figure>
-          <img src="search_screen.png" alt="Search Screen" class="mobile-screenshot" />
+          <img src="search_screen.png" alt="Search Screen" class="mobile-screenshot">
         </figure>
         <figure>
-          <img src="restaurant_screen.png" alt="Restaurant Screen" class="mobile-screenshot" />
+          <img src="restaurant_screen.png" alt="Restaurant Screen" class="mobile-screenshot">
         </figure>
         <figure>
-          <img src="home_screen.png" alt="Home Screen" class="mobile-screenshot" />
+          <img src="home_screen.png" alt="Home Screen" class="mobile-screenshot">
         </figure>
       </div>
 
       <div class="actions" style="margin-top:14px">
-        <!-- CARD ACTION LINK REMAINS EXTERNAL -->
-        <a class="btn" href="https://github.com/nashwort24/Allergen---Life/tree/main/allergen_life-master" target="_blank">GitHub</a>
+        <a class="btn" href="https://github.com/nashwort24/Allergen---Life/tree/main/allergen_life-master" target="_blank">
+          GitHub
+        </a>
       </div>
     </section>
+  </main>
+</body>
+</html>
