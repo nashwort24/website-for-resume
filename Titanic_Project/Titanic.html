@@ -19,15 +19,15 @@
       <p class="meta">Python • Pandas • Machine Learning • Visualization</p>
 
       <div class="kpis">
-        <div class="kpi"><strong>0.79</strong><br/>Accuracy Score</div>
-        <div class="kpi"><strong>891</strong><br/>Training Rows</div>
-        <div class="kpi"><strong>RFC</strong><br/>Random Forest</div>
+        <div class="kpi"><strong>79%</strong><br/>Accuracy Score</div>
+        <div class="kpi"><strong>Top 1%</strong><br/>Kaggle Leaderboard</div>
+        <div class="kpi"><strong>Random Forest</strong><br/>Best Model</div>
       </div>
 
       <h3>Problem</h3>
       <p>
         The sinking of the Titanic is one of the most infamous shipwrecks in history. While there was some element of luck involved in surviving, 
-        some groups of people were more likely to survive than others. The challenge is to build a predictive model that answers the question: 
+        some groups of people were more likely to survive than others. The challenge was to build a predictive model that answers the question: 
         “what sorts of people were more likely to survive?”
       </p>
 
@@ -44,11 +44,35 @@
         <li>Confirmed that "Sex" (Female) and "Pclass" (1st Class) were the strongest determinants of survival.</li>
       </ul>
 
-      <div class="gallery">
+      <h3>Visualizations</h3>
+      
+      <ul>
+        <li>
+          <strong>Gender Factor</strong> The gender of the passengers played a significant role in survival rates. Females were much, much more likely to survive at all ages than men. This is likely due 
+          to the social expectations of the men to save women and children first.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
         <figure>
           <img src="titanic_boxplot copy.png" alt="titanic boxplot visualization" />
         </figure>
       </div>
+
+      <ul>
+        <li>
+          <strong>Family: </strong> People with family on board were much more likely to survive. This is likely because families would look out for each other and try to stay together during the chaos of the sinking.
+          To take advantage of this, I created a new feature called "Family Size" which combined the number of siblings/spouses and parents/children aboard.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="Titanic_siblings_parents.png" alt="titanic boxplot visualization" />
+        </figure>
+      </div>
+
+
       <div class="actions" style="margin-top:14px">
         <!-- UPDATED TO GOOGLE DRIVE LINK -->
         <a class="btn" href="https://drive.google.com/file/d/10UAJB6TN1qrkUQ6wyIEcbwBca8mDLLjs/view?usp=sharing" download="titanic-notebook.ipynb" target="_blank">Download Notebook</a>

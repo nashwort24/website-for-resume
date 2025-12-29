@@ -11,39 +11,43 @@
 
 <body>
   <main class="page-container">
-    <!-- DETAIL: SUNOCO -->
-    <section id="detail-sunoco" class="detail" aria-labelledby="detail-sunoco-title">
+      <section class="detail">
       <a class="back" href="../index.html">&larr; Back to projects</a>
-
-      <h2 id="detail-sunoco-title">Sunoco Consulting — Demand Prediction</h2>
-      <p class="meta">Python • CatBoost • Time Series • Feature Engineering</p>
+        <div class="project-detail-card">
+          <h2 class="detail-title">
+            Sunoco Consulting - Demand Prediction
+            <img src="../Sunoco_image.png" class="card-imagedetail" />
+          </h2>
+        </div>
+      <p class="meta">Python • CatBoost • Time Series • Feature Engineering </p>
 
       <div class="kpis">
-        <div class="kpi"><strong>4.5</strong><br>TP/FP Ratio</div>
         <div class="kpi"><strong>83%</strong><br>Accuracy</div>
-        <div class="kpi"><strong>20</strong><br>Features</div>
+        <div class="kpi"><strong>18</strong><br>Features</div>
+        <div class="kpi"><strong>4.5</strong><br>TP/FP Ratio</div>
       </div>
 
       <h3>Problem</h3>
       <p>
-        Sunoco needed to accurately predict “High Demand” days to optimize inventory
+        The Sunoco Company needed to accurately predict “High Demand” days to optimize inventory
         and staffing. A standard accuracy score wasn’t enough; the business cost of a
         False Positive (missing out on oil sales) was high, but missing a True Positive
-        (overbuying when demand fell) was worse. The goal was to maximize the
+        (overbuying when demand fell) was worse. Thus the goal was to maximize the
         <strong>True Positive to False Positive (TP/FP) ratio</strong>.
       </p>
 
       <h3>Approach</h3>
       <ul>
-        <li><strong>Model Selection:</strong> Evaluated Random Forest, XGBoost, and CatBoost. CatBoost yielded the best stability.</li>
-        <li><strong>Target Engineering:</strong> Defined “High Demand” dynamically as volume above the rolling 70th percentile.</li>
-        <li><strong>Feature Engineering:</strong> Created 52-week lag features and included macroeconomic indicators like the “Crack Spread.”</li>
-        <li><strong>Validation:</strong> Used <code>TimeSeriesSplit</code> to respect temporal ordering.</li>
+        <li><strong>Data Selection:</strong> We needed to select the most relevant data that we could find in order for us to accurately predict demand. We chose data that measured 
+        economic trends like the GDP growth and S&P 500 growth. We also chose very specific indicators related to fuel like shipping costs and predicted oil reserves.</li>
+        <li><strong>Target:</strong> Defined “High Demand” dynamically as volume above the rolling 70th percentile for the year. The goal was to maximize the TP/FP ratio.</li>
+        <li><strong>Feature Engineering:</strong> We hypothesized that splitting the data into time-based segments improves model performance. Our initial analyses showed that covid had a significant effect on the demand of the fuel prices Therefore, we included a category for the pandemic period. We split the category into before, covid, beginning of covid, middle of covid, end of covid, and after covid. </li>
+        <li><strong>Validation:</strong> Used <code>TimeSeriesSplit</code> to respect temporal ordering. This was especially important in training the models so they didnt have any data leakage.</li>
       </ul>
 
       <h3>Results</h3>
       <ul>
-        <li>Successfully broke the client’s benchmark TP/FP ratio of 2.0 (ended at 4.5).</li>
+        <li>Successfully achieved the client’s benchmark TP/FP ratio of 2.0 (ended at 4.5).</li>
       </ul>
 
       <h3>Visualizations</h3>
@@ -51,7 +55,7 @@
       <ul>
         <li>
           <strong>COVID Shock:</strong> COVID significantly impacted oil demand across
-          the entire economy. We incorporated a binary indicator variable for the
+          the entire economy. We incorporated an indicator variable for the
           pandemic period.
         </li>
       </ul>

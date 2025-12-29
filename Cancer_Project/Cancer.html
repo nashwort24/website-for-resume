@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nathan Ashworth — Projects</title>
+  <meta name="description" content="Portfolio of Nathan Ashworth — data/analytics & front-end projects." />
+  <meta name="color-scheme" content="light dark" />  
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="page-container">
+    <!-- DETAIL: URBANIZATION -->
+    <section id="detail-p3" class="detail" aria-labelledby="detail-p3-title">
+      <a class="back" href="../index.html">&larr; Back to projects</a>
+
+      <h2 id="detail-p3-title">Petos Paradox - Predicting Cancer Rates in Animals</h2>
+      <p class="meta">Python • Multiple Regression • Stepwise Analysis • Data Merging</p>
+      
+      <div class="kpis">
+        <div class="kpi"><strong>62%</strong><br>Accuracy</div>
+        <div class="kpi"><strong>16,000+</strong><br>Animal Instances</div>
+        <div class="kpi"><strong>Classification Model</strong><br>Target Chosen</div>
+      </div>
+
+      <h3>Summary</h3>
+      <p>
+        Analyzed a researchers' dataset on cancer rates across different animal species to investigate Petos Paradox.
+        Built a multiple linear regression model to predict cancer rates based on various biological and environmental factors.
+      </p>
+
+      <h3>Problem</h3>
+      <p>
+        Petos Paradox refers to the observation that larger animals with more cells do not have a correspondingly higher incidence of cancer compared to smaller animals.
+        The challenge was to analyze a dataset of various animal species to identify factors that influence cancer rates and build a predictive model.
+      </p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li><strong>Data Cleaning:</strong> Handled missing values and standardized units across different species.</li>
+        <li><strong>Feature Engineering:</strong> Created new features such as Metabolic Rate and Lifespan. Converted categorical variables using one-hot encoding.</li>
+        <li><strong>Modeling:</strong> Compared multiple regression algorithms including Linear Regression and Random Forest. Tuned hyperparameters using Grid Search with cross-validation.</li>
+      </ul>
+      <h3>Results</h3>
+      <p> Petos Paradox exists - sort of. Animals that are bigger actually do have higher cancer rates, but its significantly less than you would expect. The correlation is not linear but rather logarithmic. </p>
+      <p> However, it is notable that many of the animals exhibited almost no cancer rates. These animals could be prime candidates for investigating cancer suppression mechanisms.</p>
+
+
+      <h3>Analysis Visualizations</h3>
+
+      <ul>
+        <li>
+          <strong>Animal Class: </strong> Certain classes of animals (like mammals) tended to have higher cancer rates compared to others (like reptiles and birds). This suggests that biological differences between classes may play a role in cancer susceptibility.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="Cancer_rate_by_class.png" alt="Age 65+ vs Rural correlation">
+        </figure>
+      </div>
+
+      <ul>
+        <li>
+          <strong>Cancer Rates by body size: </strong> While larger animals did tend to have higher cancer rates, the relationship was not as strong as one might expect based purely on cell count. This supports the idea that larger animals may have evolved more effective cancer suppression mechanisms.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="Cancer_rate_by_size.png" alt="Linear regression analysis">
+        </figure>
+      </div>
+
+      <ul>
+        <li>
+          <strong>Predictors of Cancer Rates: </strong> Class was by and car the strongest predictor of cancer rates. However, other factors like lifespan and metabolic rate also showed some correlation with cancer incidence, suggesting a multifactorial basis for cancer susceptibility across species. One interesting note is logpl which essentially measures the amount of genetic mutations an animal accumulates over its lifetime. This had a positive correlation with cancer rates which makes sense as more mutations generally lead to higher cancer risk.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="Cancer_top_rates.png" alt="Linear regression analysis">
+        </figure>
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>

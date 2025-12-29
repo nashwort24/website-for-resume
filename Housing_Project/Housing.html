@@ -19,27 +19,78 @@
       <h2 id="detail-p2-title">Kaggle Housing Prices — Predictive Modeling</h2>
       <p class="meta">Python • Scikit-learn • pandas • Feature Engineering</p>
 
+      <div class="kpis">
+        <div class="kpi"><strong>94%</strong><br>Training Accuracy</div>
+        <div class="kpi"><strong>81</strong><br>Features</div>
+        <div class="kpi"><strong>XGboost</strong><br>Best Performing Model</div>
+      </div>
+
       <h3>Summary</h3>
       <p>
         Built regression models to predict housing prices using Kaggle’s
         “House Prices: Advanced Regression Techniques” dataset.
         Applied preprocessing, feature engineering, and algorithm comparison.
       </p>
+      
+      <h3>Problem</h3>
+      <p>
+        Predicting house prices based on various features is a common
+        regression problem in data science. The goal is to accurately estimate
+        the sale price of a house in Ames, Iowa given its attributes.
+      </p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li><strong>Data Cleaning:</strong> Handled missing values using median imputation for numerical features and mode imputation for categorical features.</li>
+        <li><strong>Feature Engineering:</strong> Created new features such as Total Square Footage and Age of the House. Converted categorical variables using one-hot encoding.</li>
+        <li><strong>Modeling:</strong> Compared multiple regression algorithms including Linear Regression, Random Forest, and XGBoost. Tuned hyperparameters using Grid Search with cross-validation.</li>
+      </ul>
 
       <h3>Results</h3>
       <ul>
-        <li>Achieved an <strong>R² of 0.90</strong> on the validation set.</li>
-        <li>Identified key predictors like Overall Quality and Living Area size.</li>
+        <li>Achieved an <strong>RMSLE of 0.16</strong> on the Kaggle Leaderboard</li>
       </ul>
 
-      <div class="gallery">
+      <h3>Visualizations</h3>
+      <ul>
+        <li>
+          <strong>Living Area: </strong> One of our strongest predictors was the living area of the house. 
+          As expected, larger homes tended to have higher sale prices. The relationship was generally linear, but there were some outliers with very high prices for their size.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
         <figure>
           <img src="graph_points_kaggle.png" alt="Predicted vs actual prices">
         </figure>
+      </div>
+
+      <ul>
+        <li>
+          <strong>Basement Quality </strong> This heatmap shows the corralations between different basement qualities and saleprice. In stark contrast to GrLivArea the quality of a basement had almost no effect on the 
+          saleprice of a house. However, the presence of a basement did have a slight positive correlation with saleprice.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
         <figure>
-          <img src="boxplot_kaggle.png" alt="Feature distribution boxplots">
+          <img src="heatmap_kaggle copy.png" alt="Feature distribution boxplots">
         </figure>
       </div>
+
+      
+      <ul>
+        <li>
+          <strong>Error Analysis </strong> This is exactly what we want to see out of a good model. The errors are not skewed one way or another (they do not depend on the price of the house) and they are normally distributed around 0.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="Residuals_Housing.png" alt="Feature distribution boxplots">
+        </figure>
+      </div>
+
     </section>
   </main>
 </body>
