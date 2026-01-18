@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nathan Ashworth — Projects</title>
+  <meta name="description" content="Portfolio of Nathan Ashworth — Data analysis of the 2019 happiness crater." />
+  <meta name="color-scheme" content="light dark" />  
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="page-container">
+    <section id="detail-happiness" class="detail" aria-labelledby="detail-happiness-title">
+      <a class="back" href="../index.html">&larr; Back to projects</a>
+
+      <h2 id="detail-happiness-title">The 2019 Crater: Analyzing the Sudden Decline in American Happiness</h2>
+      <p class="meta">Python • Data Visualization • Sociological Analysis • GSS Data</p>
+      
+      <div class="kpis">
+        <div class="kpi"><strong>2018–2021</strong><br>The Sudden Drop</div>
+        <div class="kpi"><strong>72,000+</strong><br>Survey Responses</div>
+        <div class="kpi"><strong>2019</strong><br>Vibrancy Inflection</div>
+      </div>
+
+      <h3>Summary</h3>
+      <p>
+        For nearly 50 years, American happiness levels fluctuated within a stable range. However, between 2018 and 2021, the data reveals a sudden and unprecedented collapse. This project analyzes the General Social Survey (GSS) dataset to visualize this "crater" and explores the technological and psychological factors—specifically screen vibrancy and algorithmic shifts—that triggered it.
+      </p>
+
+      <h3>Problem</h3>
+      <p>
+        While economic shocks like the 2010 housing crash caused minor dips, the post-2019 decline in subjective well-being is statistically unique. The challenge was to identify why happiness fell across every demographic—regardless of race, sex, or ideology—and why it failed to rebound after the pandemic ended.
+      </p>
+
+      <h3>Approach</h3>
+      <ul>
+        <li><strong>Data Synthesis:</strong> Cleaned 50 years of GSS records, handling missing variables and "Inapplicable" responses to create a clean longitudinal dataset.</li>
+        <li><strong>Categorical Quantification:</strong> Mapped qualitative survey responses ("Very Happy" to "Not Too Happy") to a numeric scale to calculate annual averages and identify the exact timing of the trend break.</li>
+        <li><strong>Multi-Variable Correlation:</strong> Compared happiness levels against financial satisfaction and marital status to determine if the drop was tied to economic variables or social structures.</li>
+      </ul>
+
+      <h3>Results</h3>
+      <p> 
+        The analysis identified a "cascade of factors" peaking around 2019. The data suggests that as smartphone screen quality made digital life more vibrant than reality (OLED/3000 nits) and short-form content (TikTok) rewired attention spans, American well-being decoupled from historical norms.
+      </p>
+      <p> 
+        Even the "Marriage Buffer"—the consistent happiness gap between married and unmarried individuals—was unable to withstand the shift. While married people remain happier on average, both groups saw a synchronized drop, suggesting a universal cultural shift rather than a localized demographic one.
+      </p>
+
+      <h3>Analysis Visualizations</h3>
+
+      <ul>
+        <li>
+          <strong>The Happiness Trend:</strong> This time-series visualization highlights the stable historical record versus the sharp decline that began in late 2018 and worsened through 2021.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="happiness_over_times2.png" alt="Graph showing the sharp decline in happiness starting around 2018-2019">
+        </figure>
+      </div>
+
+      <ul>
+        <li>
+          <strong>Financial Satisfaction vs. Happiness:</strong> Contrary to popular belief, financial satisfaction didn't drop until two years <em>after</em> happiness levels fell, suggesting the root cause was not purely economic.
+        </li>
+      </ul>
+
+      <div class="gallery one-col">
+        <figure>
+          <img src="happiness_fin_over_tie.jpg" alt="Chart comparing financial satisfaction and happiness trends">
+        </figure>
+      </div>
+
+      <h3>Read the Deep Dive</h3>
+      <p>
+        I have written an extensive analysis on the "vibrancy gap" and why our phones became more enticing than real life on my Substack: 
+        <a href="https://nathanashworth.substack.com/p/why-did-americans-suddenly-get-a">Why did Americans suddenly get a lot more unhappy?</a>
+      </p>
+
+    </section>
+  </main>
+</body>
+</html>
