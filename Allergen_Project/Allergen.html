@@ -47,7 +47,19 @@
         <div class="kpi"><strong>&lt;1.5s</strong><br>Search latency</div>
       </div>
 
-      <h3>Problem</h3>
+<div class="phone-mockup">
+  <div class="screen">
+    <iframe 
+      src="https://www.youtube.com/embed/DMQs-UHOAIU" 
+      title="Allergen Life Demo" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <h3>Problem</h3>
       <p>
         People with food allergies struggle to quickly verify where they can safely eat.
         Allergy menus are inconsistent, and reviews rarely specify allergens.
@@ -86,5 +98,41 @@
       </div>
     </section>
   </main>
+
+  <style>
+  .video-container {
+    display: flex;
+    justify-content: center; /* Centers the video horizontally */
+    align-items: center;     /* Centers vertically if the parent has height */
+    width: 100%;             /* Ensures the container spans the full width */
+    padding: 20px 0;         /* Adds space above and below the video */
+  }
+  /* Container to center the phone on your page */
+.phone-mockup {
+  width: 300px;                /* Standard mobile width */
+  height: 600px;               /* Standard mobile height */
+  margin: 40px auto;           /* Centers the phone horizontally */
+  border: 12px solid #1a1a1a;  /* The "Phone" bezel */
+  border-radius: 35px;         /* Rounded corners for the device */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  background: #000;
+  position: relative;
+  overflow: hidden;            /* Clips the video to the rounded corners */
+}
+
+/* The actual "Screen" area */
+.screen {
+  width: 100%;
+  height: 100%;
+}
+
+/* Force the YouTube iframe to fill the vertical space */
+.screen iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+
 </body>
 </html>
